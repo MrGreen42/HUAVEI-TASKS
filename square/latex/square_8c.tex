@@ -1,0 +1,224 @@
+\hypertarget{square_8c}{}\doxysection{square.\+c File Reference}
+\label{square_8c}\index{square.c@{square.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+Include dependency graph for square.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{square_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbe}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+R\+O\+O\+TS}} \{ \newline
+\mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeab9a321da349ac1355b717745736ad90c}{N\+O\+\_\+\+R\+O\+O\+TS}}, 
+\mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea6700c0f6efd23571cb22aefd2510b1cf}{O\+N\+E\+\_\+\+R\+O\+OT}}, 
+\mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea876622d3c0b008da13a3685c64714e81}{T\+W\+O\+\_\+\+R\+O\+O\+TS}}, 
+\mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea5a79e9e49077da58fe5d46a98f0b5e36}{I\+N\+F\+\_\+\+R\+O\+O\+TS}}, 
+\newline
+\mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeaf931e5ed148b6a69e87d8d60d4077b90}{F\+A\+I\+L\+E\+D\+\_\+\+C\+H\+E\+CK}}
+ \}
+\item 
+enum \mbox{\hyperlink{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53}{T\+E\+S\+T\+S\+\_\+\+R\+E\+S\+U\+L\+TS}} \{ \mbox{\hyperlink{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53aa1244c0fe3ab7427e3451341048559c8}{T\+E\+S\+T\+\_\+\+S\+U\+C\+C\+E\+SS}}, 
+\mbox{\hyperlink{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53a983ad813fec232f9af0d26f1bb43caa5}{T\+E\+S\+T\+\_\+\+F\+A\+I\+L\+ED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{square_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\item 
+int \mbox{\hyperlink{square_8c_a5ff7ab7412c85099c4135021d1d0643c}{Solution}} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\item 
+int \mbox{\hyperlink{square_8c_acb6649ab31bd0634466e3163dafdfda3}{Lin\+\_\+\+Sol}} (double b, double c, double $\ast$x1)
+\item 
+int \mbox{\hyperlink{square_8c_a355834061a2738f1c05bacf647f4548d}{Comp\+\_\+\+Double}} (double first\+\_\+val, double second\+\_\+val)
+\item 
+int \mbox{\hyperlink{square_8c_ab3b1d9c929ab9cbf28b70cee8fcd6b6b}{Test}} (void)
+\item 
+int \mbox{\hyperlink{square_8c_a7c87beaee083283ac90aff85086425ce}{part\+\_\+test}} (int test\+\_\+num, double a, double b, double c, int ans\+\_\+n\+Roots, double ans\+\_\+x1, double ans\+\_\+x2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{square_8c_a596344e5a2992d2beec43b76a6294de0}{E\+P\+S\+I\+L\+ON}} = 2.\+22045e-\/016
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbe}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbe}} 
+\index{square.c@{square.c}!NUMBER\_OF\_ROOTS@{NUMBER\_OF\_ROOTS}}
+\index{NUMBER\_OF\_ROOTS@{NUMBER\_OF\_ROOTS}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_ROOTS}{NUMBER\_OF\_ROOTS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbe}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+R\+O\+O\+TS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_ROOTS@{NO\_ROOTS}!square.c@{square.c}}\index{square.c@{square.c}!NO\_ROOTS@{NO\_ROOTS}}}\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeab9a321da349ac1355b717745736ad90c}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeab9a321da349ac1355b717745736ad90c}} 
+N\+O\+\_\+\+R\+O\+O\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_ROOT@{ONE\_ROOT}!square.c@{square.c}}\index{square.c@{square.c}!ONE\_ROOT@{ONE\_ROOT}}}\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea6700c0f6efd23571cb22aefd2510b1cf}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea6700c0f6efd23571cb22aefd2510b1cf}} 
+O\+N\+E\+\_\+\+R\+O\+OT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_ROOTS@{TWO\_ROOTS}!square.c@{square.c}}\index{square.c@{square.c}!TWO\_ROOTS@{TWO\_ROOTS}}}\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea876622d3c0b008da13a3685c64714e81}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea876622d3c0b008da13a3685c64714e81}} 
+T\+W\+O\+\_\+\+R\+O\+O\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INF\_ROOTS@{INF\_ROOTS}!square.c@{square.c}}\index{square.c@{square.c}!INF\_ROOTS@{INF\_ROOTS}}}\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea5a79e9e49077da58fe5d46a98f0b5e36}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbea5a79e9e49077da58fe5d46a98f0b5e36}} 
+I\+N\+F\+\_\+\+R\+O\+O\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAILED\_CHECK@{FAILED\_CHECK}!square.c@{square.c}}\index{square.c@{square.c}!FAILED\_CHECK@{FAILED\_CHECK}}}\mbox{\Hypertarget{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeaf931e5ed148b6a69e87d8d60d4077b90}\label{square_8c_a0f0e3e1a7a24ffa6bd3abe24deb87fbeaf931e5ed148b6a69e87d8d60d4077b90}} 
+F\+A\+I\+L\+E\+D\+\_\+\+C\+H\+E\+CK&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53}\label{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53}} 
+\index{square.c@{square.c}!TESTS\_RESULTS@{TESTS\_RESULTS}}
+\index{TESTS\_RESULTS@{TESTS\_RESULTS}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{TESTS\_RESULTS}{TESTS\_RESULTS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53}{T\+E\+S\+T\+S\+\_\+\+R\+E\+S\+U\+L\+TS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_SUCCESS@{TEST\_SUCCESS}!square.c@{square.c}}\index{square.c@{square.c}!TEST\_SUCCESS@{TEST\_SUCCESS}}}\mbox{\Hypertarget{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53aa1244c0fe3ab7427e3451341048559c8}\label{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53aa1244c0fe3ab7427e3451341048559c8}} 
+T\+E\+S\+T\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEST\_FAILED@{TEST\_FAILED}!square.c@{square.c}}\index{square.c@{square.c}!TEST\_FAILED@{TEST\_FAILED}}}\mbox{\Hypertarget{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53a983ad813fec232f9af0d26f1bb43caa5}\label{square_8c_a4332b7d1fe877b1d7fe8ebb834112e53a983ad813fec232f9af0d26f1bb43caa5}} 
+T\+E\+S\+T\+\_\+\+F\+A\+I\+L\+ED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{square_8c_a355834061a2738f1c05bacf647f4548d}\label{square_8c_a355834061a2738f1c05bacf647f4548d}} 
+\index{square.c@{square.c}!Comp\_Double@{Comp\_Double}}
+\index{Comp\_Double@{Comp\_Double}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{Comp\_Double()}{Comp\_Double()}}
+{\footnotesize\ttfamily int Comp\+\_\+\+Double (\begin{DoxyParamCaption}\item[{double}]{first\+\_\+val,  }\item[{double}]{second\+\_\+val }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Comparing two double numbers with E\+P\+S\+I\+L\+ON precision
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em first\+\_\+val} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em second\+\_\+val} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{square_8c_acb6649ab31bd0634466e3163dafdfda3}\label{square_8c_acb6649ab31bd0634466e3163dafdfda3}} 
+\index{square.c@{square.c}!Lin\_Sol@{Lin\_Sol}}
+\index{Lin\_Sol@{Lin\_Sol}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{Lin\_Sol()}{Lin\_Sol()}}
+{\footnotesize\ttfamily int Lin\+\_\+\+Sol (\begin{DoxyParamCaption}\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Solution of linear equation bx + c = 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & pointer to the root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots
+\end{DoxyReturn}
+if the number of roots is infinite returns I\+N\+F\+\_\+\+R\+O\+O\+TS \mbox{\Hypertarget{square_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{square_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{square.c@{square.c}!main@{main}}
+\index{main@{main}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{square_8c_a7c87beaee083283ac90aff85086425ce}\label{square_8c_a7c87beaee083283ac90aff85086425ce}} 
+\index{square.c@{square.c}!part\_test@{part\_test}}
+\index{part\_test@{part\_test}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{part\_test()}{part\_test()}}
+{\footnotesize\ttfamily int part\+\_\+test (\begin{DoxyParamCaption}\item[{int}]{test\+\_\+num,  }\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{int}]{ans\+\_\+n\+Roots,  }\item[{double}]{ans\+\_\+x1,  }\item[{double}]{ans\+\_\+x2 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Function for test for one set of numbers
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test\+\_\+num} & number of test \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+n\+Roots} & correct number of roots \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+x1} & correct answer \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+x2} & correct answer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success and 1 if failed, because of enum T\+E\+S\+T\+S\+\_\+\+R\+E\+S\+U\+L\+TS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{square_8c_a5ff7ab7412c85099c4135021d1d0643c}\label{square_8c_a5ff7ab7412c85099c4135021d1d0643c}} 
+\index{square.c@{square.c}!Solution@{Solution}}
+\index{Solution@{Solution}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{Solution()}{Solution()}}
+{\footnotesize\ttfamily int Solution (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Solution of square equation ax$^\wedge$2 + bx + c = 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & pointer to the 1st root \\
+\hline
+\mbox{\texttt{ out}}  & {\em x2} & pointer to the 2st root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots
+\end{DoxyReturn}
+if the number of roots is infinite returns I\+N\+F\+\_\+\+R\+O\+O\+TS \mbox{\Hypertarget{square_8c_ab3b1d9c929ab9cbf28b70cee8fcd6b6b}\label{square_8c_ab3b1d9c929ab9cbf28b70cee8fcd6b6b}} 
+\index{square.c@{square.c}!Test@{Test}}
+\index{Test@{Test}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily int Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Function for tests, using function part\+\_\+test for every particular test
+
+\begin{DoxyReturn}{Returns}
+sum of returns of part\+\_\+test \textquotesingle{}s 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+because every part\+\_\+test returns 0 if success and 1 if failed, so \mbox{\hyperlink{header_8h_ab3b1d9c929ab9cbf28b70cee8fcd6b6b}{Test()}} returns 0 if all tests success and int $>$ 0 if one of them failed 
+\end{DoxyNote}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{square_8c_a596344e5a2992d2beec43b76a6294de0}\label{square_8c_a596344e5a2992d2beec43b76a6294de0}} 
+\index{square.c@{square.c}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!square.c@{square.c}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily const double E\+P\+S\+I\+L\+ON = 2.\+22045e-\/016}
+

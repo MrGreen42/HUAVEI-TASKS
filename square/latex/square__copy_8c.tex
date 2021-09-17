@@ -1,0 +1,159 @@
+\hypertarget{square__copy_8c}{}\doxysection{square\+\_\+copy.\+c File Reference}
+\label{square__copy_8c}\index{square\_copy.c@{square\_copy.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for square\+\_\+copy.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{square__copy_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{square__copy_8c_a80c90036cc246446050cb1c01bf254e7}{I\+N\+F\+\_\+\+R\+O\+O\+TS}}~3
+\item 
+\#define \mbox{\hyperlink{square__copy_8c_a002b2f4894492820fe708b1b7e7c5e70}{E\+P\+S\+I\+L\+ON}}~2.\+22045e-\/016
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{square__copy_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\item 
+int \mbox{\hyperlink{square__copy_8c_a5ff7ab7412c85099c4135021d1d0643c}{Solution}} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\item 
+int \mbox{\hyperlink{square__copy_8c_acb6649ab31bd0634466e3163dafdfda3}{Lin\+\_\+\+Sol}} (double b, double c, double $\ast$x1)
+\item 
+int \mbox{\hyperlink{square__copy_8c_a355834061a2738f1c05bacf647f4548d}{Comp\+\_\+\+Double}} (double first\+\_\+val, double second\+\_\+val)
+\item 
+void \mbox{\hyperlink{square__copy_8c_a4f039a8e8c0945d459d7c050723eddac}{Test}} (void)
+\item 
+void \mbox{\hyperlink{square__copy_8c_a572ef63e8ebaa66f01db45227d544930}{part\+\_\+test}} (int test\+\_\+num, double a, double b, double c, int ans\+\_\+n\+Roots, double ans\+\_\+x1, double ans\+\_\+x2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{square__copy_8c_a002b2f4894492820fe708b1b7e7c5e70}\label{square__copy_8c_a002b2f4894492820fe708b1b7e7c5e70}} 
+\index{square\_copy.c@{square\_copy.c}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily \#define E\+P\+S\+I\+L\+ON~2.\+22045e-\/016}
+
+\mbox{\Hypertarget{square__copy_8c_a80c90036cc246446050cb1c01bf254e7}\label{square__copy_8c_a80c90036cc246446050cb1c01bf254e7}} 
+\index{square\_copy.c@{square\_copy.c}!INF\_ROOTS@{INF\_ROOTS}}
+\index{INF\_ROOTS@{INF\_ROOTS}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{INF\_ROOTS}{INF\_ROOTS}}
+{\footnotesize\ttfamily \#define I\+N\+F\+\_\+\+R\+O\+O\+TS~3}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{square__copy_8c_a355834061a2738f1c05bacf647f4548d}\label{square__copy_8c_a355834061a2738f1c05bacf647f4548d}} 
+\index{square\_copy.c@{square\_copy.c}!Comp\_Double@{Comp\_Double}}
+\index{Comp\_Double@{Comp\_Double}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{Comp\_Double()}{Comp\_Double()}}
+{\footnotesize\ttfamily int Comp\+\_\+\+Double (\begin{DoxyParamCaption}\item[{double}]{first\+\_\+val,  }\item[{double}]{second\+\_\+val }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Comparing two double numbers with E\+P\+S\+I\+L\+ON precision
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em first\+\_\+val} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em second\+\_\+val} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{square__copy_8c_acb6649ab31bd0634466e3163dafdfda3}\label{square__copy_8c_acb6649ab31bd0634466e3163dafdfda3}} 
+\index{square\_copy.c@{square\_copy.c}!Lin\_Sol@{Lin\_Sol}}
+\index{Lin\_Sol@{Lin\_Sol}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{Lin\_Sol()}{Lin\_Sol()}}
+{\footnotesize\ttfamily int Lin\+\_\+\+Sol (\begin{DoxyParamCaption}\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Solution of linear equation bx + c = 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & pointer to the root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots
+\end{DoxyReturn}
+if the number of roots is infinite returns I\+N\+F\+\_\+\+R\+O\+O\+TS \mbox{\Hypertarget{square__copy_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{square__copy_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{square\_copy.c@{square\_copy.c}!main@{main}}
+\index{main@{main}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{square__copy_8c_a572ef63e8ebaa66f01db45227d544930}\label{square__copy_8c_a572ef63e8ebaa66f01db45227d544930}} 
+\index{square\_copy.c@{square\_copy.c}!part\_test@{part\_test}}
+\index{part\_test@{part\_test}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{part\_test()}{part\_test()}}
+{\footnotesize\ttfamily void part\+\_\+test (\begin{DoxyParamCaption}\item[{int}]{test\+\_\+num,  }\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{int}]{ans\+\_\+n\+Roots,  }\item[{double}]{ans\+\_\+x1,  }\item[{double}]{ans\+\_\+x2 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Function for test for one set of numbers
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test\+\_\+num} & number of test \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+n\+Roots} & correct number of roots \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+x1} & correct answer \\
+\hline
+\mbox{\texttt{ in}}  & {\em ans\+\_\+x2} & correct answer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{square__copy_8c_a5ff7ab7412c85099c4135021d1d0643c}\label{square__copy_8c_a5ff7ab7412c85099c4135021d1d0643c}} 
+\index{square\_copy.c@{square\_copy.c}!Solution@{Solution}}
+\index{Solution@{Solution}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{Solution()}{Solution()}}
+{\footnotesize\ttfamily int Solution (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Solution of square equation ax$^\wedge$2 + bx + c = 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & coefficient of equation \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & coefficient of equation\\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & pointer to the 1st root \\
+\hline
+\mbox{\texttt{ out}}  & {\em x2} & pointer to the 2st root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots
+\end{DoxyReturn}
+if the number of roots is infinite returns I\+N\+F\+\_\+\+R\+O\+O\+TS \mbox{\Hypertarget{square__copy_8c_a4f039a8e8c0945d459d7c050723eddac}\label{square__copy_8c_a4f039a8e8c0945d459d7c050723eddac}} 
+\index{square\_copy.c@{square\_copy.c}!Test@{Test}}
+\index{Test@{Test}!square\_copy.c@{square\_copy.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily void Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ Function for tests, using function part\+\_\+test for every particular test 
