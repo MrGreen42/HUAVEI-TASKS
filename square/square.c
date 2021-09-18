@@ -68,7 +68,7 @@ int Solution(double a, double b, double c, double* x1, double* x2) {
                 return Lin_Sol(b, c, x1);
         }
         else { //if a != 0
-                double d = b * b - 4 * a *c; // d - discriminant of equation
+                double d = b*b - 4*a*c; // d - discriminant of equation
                 if (Comp_Double(d, 0)) {
 			*x1 = -b / (2*a);
                         return ONE_ROOT;
@@ -89,11 +89,9 @@ int Solution(double a, double b, double c, double* x1, double* x2) {
 
 int Lin_Sol(double b, double c, double* x1) {
 	if (!((isfinite(b)) && (isfinite(c)))) {
-                printf("Please, try again and enter tree numbers\n");
                 return FAILED_CHECK;
         }
-        if (!(x1)) {
-                printf("Something went wrong, plese try again \n");
+	if (!(x1)) {
                 return FAILED_CHECK;
         }
 
@@ -112,12 +110,7 @@ int Lin_Sol(double b, double c, double* x1) {
 }
 
 int Comp_Double(double first_val, double second_val) {
-        if (abs(first_val - second_val) < EPSILON) {
-                return 1;// numbers are equal
-        }
-        else {
-                return 0;// numbers are not equal
-        }
+	return abs(first_val - second_val) < EPSILON; //1 if comparison is TRUE and 0 if FALSE
 }
 
 int Test(void) {
@@ -141,7 +134,7 @@ int part_test(int test_num, double a, double b, double c, int ans_nRoots, double
         if (nRoots == INF_ROOTS) { //  in this case it is useless to check roots
                 return TEST_SUCCESS;
         }
-        if (Comp_Double(x1, ans_x1) - 1) {      // (Comp_Double() - 1) is the same to the negative Comp_Double()
+        if (!(Comp_Double(x1, ans_x1))) {      // (Comp_Double() - 1) is the same to the negative Comp_Double()
                 printf("Test %d failed. First root x1 = %lg, should be %lg \n", test_num, x1, ans_x1);
                 return TEST_FAILED;
         }
