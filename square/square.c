@@ -47,7 +47,7 @@ int main(void) {
 			break;
 		case INF_ROOTS: printf("Any number is a root \n");
 			break;
-		case FAILED_CHECK: // message prints in Solution()
+		case FAILED_CHECK: printf("Something went wrong, plese try again \n");
 			break;
 		default: printf("ERROR: nRoots = %d \n", nRoots);
 			 return 1;
@@ -58,11 +58,9 @@ int main(void) {
 int Solution(double a, double b, double c, double* x1, double* x2) {
 
         if (!((isfinite(a)) && (isfinite(b)) && (isfinite(c)))) {
-		printf("Please, try again and enter tree numbers\n");
 		return FAILED_CHECK;
 	}
 	if (!(x1 && x2 && (x1 != x2))) {
-		printf("Something went wrong, plese try again \n");
 		return FAILED_CHECK;
         }
 
