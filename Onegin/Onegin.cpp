@@ -1,25 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int FileSize(FILE* f);
-
-int ReadFile(FILE* f, char* buffer);
-
-int StrCount(char* buffer, int size);
-
-int FindStr(char** begin, char** end, char* buffer, int size, int num_str);
-
-int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2));
-
-int Print_Sort(FILE* f, char** str_begin, int num_str);
-
-int Print_Rev(FILE* f, char** str_end, int num_str);
-
-int Print_Orig(FILE*, char* buffer, int size);
-
-int Comparator(const void* str1, const void* str2);
-
-int RevComparator(const void* str1, const void* str2);
+#include "header.h"
 
 
 int main() {
@@ -28,7 +9,9 @@ int main() {
 
 	FILE *f = fopen("norm1.txt", "rb");
 
-	int size = FileSize(f); //FileSize() returns number of symbols in text file
+	int size = 0;
+	
+	FileSize(f); //FileSize() returns number of symbols in text file
 
 	char* buffer = (char*)calloc(size + 1, sizeof(char));
 
