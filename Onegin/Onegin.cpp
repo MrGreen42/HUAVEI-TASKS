@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
-
+#include "funcs.cpp"
 
 int main() {
 	const char* text_r = "norm1.txt";
@@ -15,7 +15,7 @@ int main() {
 
 	char* buffer = (char*)calloc(size + 1, sizeof(char));
 
-	ReadFile(f, buffer); //Read text from file to buffer
+	ReadFile(f, buffer, size); //Read text from file to buffer
 
 	int num_str = StrCount(buffer, size); //Count number of strings in buffer
 

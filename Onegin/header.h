@@ -24,7 +24,7 @@ Fills the buffer with symbols from file
 
 \note if return value < 0 it is error and the value is its code
 */
-int ReadFile(FILE* f, char* buffer);
+int ReadFile(FILE* f, char* buffer, int size);
 
 /*!-----------------------------------------------------------
 Counts number of strings in buffer 
