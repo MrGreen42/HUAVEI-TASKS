@@ -11,7 +11,6 @@ int main() {
 
 	char* buffer = (char*)calloc(size + 3, sizeof(char));
 	buffer[0] = '\0';
-	//buffer[size+2] = '\0';
 	buffer++;
 
 	ReadFile(f, buffer, size); //Read text from file to buffer
@@ -33,12 +32,19 @@ int main() {
 	for (int i = 0; i < num_str; i++) {
 		printf("%p %p\n", str_begin[i], str_end[i]);
 	}
-	printf("c %c\n", *(str_end[0]));	
-	Sort(str_begin, num_str, Comparator); // sort
 	
+	Sort(str_begin, num_str, Comparator); // sort
+	printf("ends\n");
+	for (int i = 0; i < num_str; i++) {
+                printf("%p\n",  str_end[i]);
+        }
 
 	Sort(str_end, num_str, RevComparator);
-	
+	printf("ends\n");
+        for (int i = 0; i < num_str; i++) {
+                printf("%p\n",  str_end[i]);
+        }
+
 
 
 

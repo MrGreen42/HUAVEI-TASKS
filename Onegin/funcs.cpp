@@ -49,8 +49,6 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2)) {
 	assert(arr);
 	assert(cmp);
-	printf("pointer cmp %p\n", cmp);
-
 	qsort(arr, num_str, sizeof(char*), Comparator);
 	return 0;
 }
@@ -61,7 +59,6 @@ int Print_Sort(FILE* f, char** str_begin, int num_str) {
 	for (int k = 0; k < num_str; k++) {
 		fprintf(f, "%s", str_begin[k]);
 		fprintf(f,"\n");
-
 	}
 	return 0;
 }
@@ -75,7 +72,6 @@ int Print_Rev(FILE* f, char** str_end, int num_str) {
 		} 
                 fprintf(f, "%s", str_end[k] + 1);
                 fprintf(f,"\n");
-
         }
         return 0;
 }
@@ -102,9 +98,9 @@ int Comparator(const void* str1, const void* str2) {
 int RevComparator(const void* str1, const void* str2) {
 	assert(str1);
 	assert(str2);
+	assert(0);
 	int k1 = 0, k2 = 0;
-	//printf("str1 %c\nstr2 %c", **(char**)str1, **(char**)str2);
-	while (!(( 'A' <= *(*(char**)str1 - k1) <= 'Z') || ( 'a' <= *(*(char**)str1 - k1) <= 'z'))) {
+	if (!(( 'A' <= *(*(char**)str1 - k1) <= 'Z') || ( 'a' <= *(*(char**)str1 - k1) <= 'z'))) {
 		k1++;
 	}
 	while (!(( 'A' <= *(*(char**)str2 - k2) <= 'Z') || ( 'a' <= *(*(char**)str2 - k2) <= 'z'))) {
@@ -115,7 +111,8 @@ int RevComparator(const void* str1, const void* str2) {
                 k1++;
 		k2++;
         }
-        return *(*(char**)str1 - k1) - *(*(char**)str2 - k2);
+	return *(*(char**)str1 - k1) - *(*(char**)str2 - k2);
+	
 	
 }
 
