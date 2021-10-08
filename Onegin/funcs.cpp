@@ -23,7 +23,7 @@ int ReadFile(FILE* f, char* buffer, int size) {
 
 int StrCount(char* buffer, int size) {
 	int num_str = 0;
-	for (int k = 0; k < size + 1; k++) {
+	for (int k = 0; k < size; k++) {
 		if (buffer[k] == '\0') {
 			num_str++;
 		}
@@ -103,8 +103,7 @@ int RevComparator(const void* str1, const void* str2) {
 	assert(str1);
 	assert(str2);
 	int k1 = 0, k2 = 0;
-	printf("1");
-	printf("str1 %c\nstr2 %c", **(char**)str1, **(char**)str2);
+	//printf("str1 %c\nstr2 %c", **(char**)str1, **(char**)str2);
 	while (!(( 'A' <= *(*(char**)str1 - k1) <= 'Z') || ( 'a' <= *(*(char**)str1 - k1) <= 'z'))) {
 		k1++;
 	}
