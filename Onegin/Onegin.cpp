@@ -34,20 +34,9 @@ int main() {
 	}
 	
 	Sort(str_begin, num_str, Comparator); // sort
-	printf("ends\n");
-	for (int i = 0; i < num_str; i++) {
-                printf("%p\n",  str_end[i]);
-        }
-
+	
 	Sort(str_end, num_str, RevComparator);
-	printf("ends\n");
-        for (int i = 0; i < num_str; i++) {
-                printf("%p\n",  str_end[i]);
-        }
-
-
-
-
+	
 	fclose(f);
 
 	f = fopen("result.txt", "w+");
