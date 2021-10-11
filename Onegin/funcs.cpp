@@ -36,7 +36,7 @@ int StrCount(char* buffer, int size) {
         }
 	int num_str = 0;
 	for (int k = 0; k < size; k++) {
-		if (buffer[k] == '\0') {
+		if ((buffer[k] == '\0') && (buffer[k+1] != '\0')) {
 			num_str++;
 		}
 	}
@@ -60,9 +60,11 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 	begin[curr_str] = buffer;
 	for (int k = 0; k < size; k++) {
 		if (buffer[k] == '\0') {
-			end[curr_str] = &buffer[k - 1];
-			curr_str++;
-			if (curr_str < num_str) {
+			if (buffer[k-1] != '\0') {
+				end[curr_str] = &buffer[k - 1];
+				curr_str++;
+			}
+			if ((curr_str < num_str) && (buffer[k+1] != '\0')) {
 				begin[curr_str] = &buffer[k + 1];
 			}
 		}
@@ -135,7 +137,7 @@ int Print_Orig(FILE* f, char* buffer, int size) {
         if (size < 0) {
                 return BAD_SIZE;
         }
-	for (int k = 0; k < size + 1; k++) {
+	for (int k = 0; k < size; k++) {
 		fprintf(f, "%c", buffer[k]);
 		if (buffer[k] == '\0') {
 			fprintf(f, "\n");
@@ -150,6 +152,8 @@ int Comparator(const void* str1, const void* str2) {
 		k++;
 	}
 	return *(*(char**)str1 + k) - *(*(char**)str2 + k);
+	
+	return 0;
 }
 
 int RevComparator(const void* str1, const void* str2) {

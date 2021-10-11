@@ -4,6 +4,8 @@
 #include "funcs.cpp"
 #include <cstring>
 
+
+//function to check errors by returning value of functions
 int Check(int error_num);
 
 int main() {
@@ -19,7 +21,7 @@ int main() {
 		return 0;;
 	}
 
-	char* buffer = (char*)calloc(size + 2, sizeof(char));
+	char* buffer = (char*)calloc(size + 3, sizeof(char));
 	buffer[0] = '\0';
 	buffer++;
 
@@ -29,7 +31,7 @@ int main() {
         }
 
 
-	for (int i = 0; i < size+1; ++i) {
+	for (int i = 0; i < size + 1; ++i) {
        		if(buffer[i] == '\n') {
             		buffer[i] = '\0';
       		}
@@ -39,15 +41,14 @@ int main() {
 	if (Check(num_str)) {
                 return 0;;
         }
+	char* str_begin[num_str+25];
+	char* str_end[num_str];
+		
 
-	char* str_begin[num_str];
-	char* str_end[num_str+1];
-	
 	error_num = FindStr(str_begin, str_end, buffer, size, num_str); // add to str_begin[] begins of strings from buffer and add to str_end ends of strings from buffer 
 	if (Check(error_num)) {
                 return 0;;
         }
-
 	error_num = Sort(str_begin, num_str, Comparator); // sort
 	if (Check(error_num)) {
                 return 0;;
