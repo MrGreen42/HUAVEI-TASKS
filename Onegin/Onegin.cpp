@@ -10,8 +10,11 @@ int Check(int error_num);
 
 int main() {
 	int error_num = 0;
-
-	FILE *f = fopen("norm1.txt", "rb");
+	
+	char filename[256] = {};
+	scanf("%s", filename);
+	printf("%s\n", filename);
+	FILE *f = fopen(filename, "rb");
 	if (!(f)) {
 		printf("cannot open file\n");
 		return 0;;
