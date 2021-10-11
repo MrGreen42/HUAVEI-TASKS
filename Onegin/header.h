@@ -1,5 +1,14 @@
 // File header
 
+enum ERRORS {
+        BAD_FILE = -1,
+        BAD_BUFFER = -2,
+        BAD_READ = -3,
+        BAD_SIZE  = -4,
+        BAD_NUM_STR = -5,
+        BAD_ARRAY = -6,
+        BAD_COMPARATOR = -7
+};
 
 /*!-----------------------------------------------------------
 Find number of symbols in text from file 

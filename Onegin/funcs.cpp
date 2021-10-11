@@ -1,27 +1,39 @@
-#include "header.h"
-#include <cassert>
-
-enum ERRORS {
-	ERR_OPEN = -1,
-
-};
 
 int FileSize(FILE* f) {
 	if (!f) {
-		return ERR_OPEN;
+		return BAD_FILE;
 	}
 	fseek(f, 0, SEEK_END); //place position in the end of file
 	int size = ftell(f); // ftell returns number of position
+	if (size < 0) {
+                return BAD_SIZE;
+        }
 	fseek(f, 0, SEEK_SET); // place position back to the begin
 	return size;
 }
 
 int ReadFile(FILE* f, char* buffer, int size) {
+	if (!f) {
+                return BAD_FILE;
+        }
+	if (!buffer) {
+                return BAD_BUFFER;
+        }
+
 	size_t n = fread(buffer, sizeof(char), size, f);
-	return n;
+	if (n != size) {
+                return BAD_READ;
+        }
+	return 0;
 }	
 
 int StrCount(char* buffer, int size) {
+	if (!buffer) {
+                return BAD_BUFFER;
+        }
+	if (size < 0) {
+                return BAD_SIZE;
+        }
 	int num_str = 0;
 	for (int k = 0; k < size; k++) {
 		if (buffer[k] == '\0') {
@@ -32,6 +44,18 @@ int StrCount(char* buffer, int size) {
 }
 
 int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
+	if (!buffer) {
+                return BAD_BUFFER;
+        }
+	if ((!begin) || (!end)) {
+                return BAD_ARRAY;
+        }
+	if (size < 0) {
+                return BAD_SIZE;
+        }
+	if (num_str < 0) {
+                return BAD_NUM_STR;
+        }
 	int curr_str = 0;
 	begin[curr_str] = buffer;
 	for (int k = 0; k < size; k++) {
@@ -47,15 +71,30 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 }
 
 int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2)) {
-	assert(arr);
-	assert(cmp);
+	if (!arr) {
+                return BAD_ARRAY;
+        }
+	if (num_str < 0) {
+                return BAD_NUM_STR;
+        }
+	if (!cmp) {
+                return BAD_COMPARATOR;
+        }
 	qsort(arr, num_str, sizeof(char*), cmp);
 	return 0;
 }
 	
 
 int Print_Sort(FILE* f, char** str_begin, int num_str) {
-	
+	if (!f) {
+                return BAD_FILE;
+        }
+	if (!str_begin) {
+                return BAD_ARRAY;
+        }
+        if (num_str < 0) {
+                return BAD_NUM_STR;
+        }
 	for (int k = 0; k < num_str; k++) {
 		fprintf(f, "%s", str_begin[k]);
 		fprintf(f,"\n");
@@ -64,6 +103,15 @@ int Print_Sort(FILE* f, char** str_begin, int num_str) {
 }
 
 int Print_Rev(FILE* f, char** str_end, int num_str) {
+	if (!f) {
+                return BAD_FILE;
+        }
+        if (!str_end) {
+                return BAD_ARRAY;
+        }
+        if (num_str < 0) {
+                return BAD_NUM_STR;
+        }
 	char curr = '\n';
 	int n = 0;
 	for (int k = 0; k < num_str; k++) {
@@ -78,6 +126,15 @@ int Print_Rev(FILE* f, char** str_end, int num_str) {
 
 
 int Print_Orig(FILE* f, char* buffer, int size) {
+	if (!f) {
+                return BAD_FILE;
+        }
+        if (!buffer) {
+                return BAD_BUFFER;
+        }
+        if (size < 0) {
+                return BAD_SIZE;
+        }
 	for (int k = 0; k < size + 1; k++) {
 		fprintf(f, "%c", buffer[k]);
 		if (buffer[k] == '\0') {
@@ -88,7 +145,6 @@ int Print_Orig(FILE* f, char* buffer, int size) {
 }
 
 int Comparator(const void* str1, const void* str2) {
-	//assert(0);
 	int k = 0;
 	while (*(*(char**)str1 + k) == *(*(char**)str2 + k)) {
 		k++;
@@ -97,29 +153,19 @@ int Comparator(const void* str1, const void* str2) {
 }
 
 int RevComparator(const void* str1, const void* str2) {
-	assert(str1);
-	assert(str2);
 	int k1 = 0, k2 = 0;
-	//printf("%d <= %d <= %d\n", (int)'a' , (int)**(char**)str1 , (int)'z');
-	if (!(( ('A' <= **(char**)str1) && ( **(char**)str1 <= 'Z')) || ( ('a' <= **(char**)str1) && ( **(char**)str1 <= 'z')) )) {
+	while (!(( ('A' <= *(*(char**)str1 - k1)) && ( *(*(char**)str1 - k1) <= 'Z')) || ( ('a' <= *(*(char**)str1 - k1)) && ( *(*(char**)str1 - k1) <= 'z')) )) {
 		k1++;
 	}
-	if (!(( ('A' <= **(char**)str2) && ( **(char**)str2 <= 'Z')) || ( ('a' <= **(char**)str2) && ( **(char**)str2 <= 'z')) )) {
+	while (!(( ('A' <= *(*(char**)str2 - k2)) && ( *(*(char**)str2 - k2) <= 'Z')) || ( ('a' <= *(*(char**)str2 - k2)) && ( *(*(char**)str2 - k2) <= 'z')) )) {
 
                 k2++;
         }
-
-	printf("str1 p: %p	c0:%c	c1:%c	k1: %d\n", *(char**)str1, **(char**)str1, *(*(char**)str1 - k1), k1);
-	printf("str2 p: %p      c0:%c   c1:%c   k2: %d\n\n", *(char**)str2, **(char**)str2, *(*(char**)str2 - k2), k2);
-
-
 	while (*(*(char**)str1 - k1) == *(*(char**)str2 - k2)) {
                 k1++;
 		k2++;
         }
 	return *(*(char**)str1 - k1) - *(*(char**)str2 - k2);
-	
-	
 }
 
 
