@@ -4,7 +4,7 @@ int FileSize(FILE* f) {
 		return BAD_FILE;
 	}
 	fseek(f, 0, SEEK_END); //place position in the end of file
-	int size = ftell(f); // ftell returns number of position
+	int size = (int)ftell(f); // ftell returns number of position
 	if (size < 0) {
                 return BAD_SIZE;
         }
@@ -19,8 +19,10 @@ int ReadFile(FILE* f, char* buffer, int size) {
 	if (!buffer) {
                 return BAD_BUFFER;
         }
-
-	size_t n = fread(buffer, sizeof(char), size, f);
+	if (size < 0) {
+                return BAD_SIZE;
+        }
+	int n = (int)fread(buffer, sizeof(char), (size_t)size, f);
 	if (n != size) {
                 return BAD_READ;
         }
@@ -60,7 +62,7 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 	begin[curr_str] = buffer;
 	for (int k = 0; k < size; k++) {
 		if (buffer[k] == '\0') {
-			if (buffer[k-1] != '\0') {
+			if ((curr_str < num_str) && (buffer[k-1] != '\0')) {
 				end[curr_str] = &buffer[k - 1];
 				curr_str++;
 			}
@@ -82,7 +84,7 @@ int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2)
 	if (!cmp) {
                 return BAD_COMPARATOR;
         }
-	qsort(arr, num_str, sizeof(char*), cmp);
+	qsort(arr, (size_t)num_str, sizeof(char*), cmp);
 	return 0;
 }
 	
@@ -104,6 +106,7 @@ int Print_Sort(FILE* f, char** str_begin, int num_str) {
 	return 0;
 }
 
+
 int Print_Rev(FILE* f, char** str_end, int num_str) {
 	if (!f) {
                 return BAD_FILE;
@@ -114,8 +117,6 @@ int Print_Rev(FILE* f, char** str_end, int num_str) {
         if (num_str < 0) {
                 return BAD_NUM_STR;
         }
-	char curr = '\n';
-	int n = 0;
 	for (int k = 0; k < num_str; k++) {
 		while (*(str_end[k]) != '\0') {
 			str_end[k]--;
@@ -148,28 +149,28 @@ int Print_Orig(FILE* f, char* buffer, int size) {
 
 int Comparator(const void* str1, const void* str2) {
 	int k = 0;
-	while (*(*(char**)str1 + k) == *(*(char**)str2 + k)) {
+	while (*(*(char* const*)str1 + k) == *(*(char* const*)str2 + k)) {
 		k++;
 	}
-	return *(*(char**)str1 + k) - *(*(char**)str2 + k);
+	return *(*(char* const*)str1 + k) - *(*(char* const*)str2 + k);
 	
 	return 0;
 }
 
 int RevComparator(const void* str1, const void* str2) {
 	int k1 = 0, k2 = 0;
-	while (!(( ('A' <= *(*(char**)str1 - k1)) && ( *(*(char**)str1 - k1) <= 'Z')) || ( ('a' <= *(*(char**)str1 - k1)) && ( *(*(char**)str1 - k1) <= 'z')) )) {
+	while (!(( ('A' <= *(*(char* const*)str1 - k1)) && ( *(*(char* const*)str1 - k1) <= 'Z')) || ( ('a' <= *(*(char* const*)str1 - k1)) && ( *(*(char* const*)str1 - k1) <= 'z')) )) {
 		k1++;
 	}
-	while (!(( ('A' <= *(*(char**)str2 - k2)) && ( *(*(char**)str2 - k2) <= 'Z')) || ( ('a' <= *(*(char**)str2 - k2)) && ( *(*(char**)str2 - k2) <= 'z')) )) {
+	while (!(( ('A' <= *(*(char* const*)str2 - k2)) && ( *(*(char* const*)str2 - k2) <= 'Z')) || ( ('a' <= *(*(char* const*)str2 - k2)) && ( *(*(char* const*)str2 - k2) <= 'z')) )) {
 
                 k2++;
         }
-	while (*(*(char**)str1 - k1) == *(*(char**)str2 - k2)) {
+	while (*(*(char* const*)str1 - k1) == *(*(char* const*)str2 - k2)) {
                 k1++;
 		k2++;
         }
-	return *(*(char**)str1 - k1) - *(*(char**)str2 - k2);
+	return *(*(char* const*)str1 - k1) - *(*(char* const*)str2 - k2);
 }
 
 

@@ -9,11 +9,12 @@
 int Check(int error_num);
 
 int main() {
+
+	printf("By Evgenii\n Enter name of source file:\n");
 	int error_num = 0;
 	
-	char filename[256] = {};
+	char filename[256] = {}; // in linux max length of path is 255 bytes(symbols)
 	scanf("%s", filename);
-	printf("%s\n", filename);
 	FILE *f = fopen(filename, "rb");
 	if (!(f)) {
 		printf("cannot open file\n");
@@ -24,7 +25,7 @@ int main() {
 		return 0;;
 	}
 
-	char* buffer = (char*)calloc(size + 3, sizeof(char));
+	char* buffer = (char*)calloc((size_t)(size + 2), sizeof(char));
 	buffer[0] = '\0';
 	buffer++;
 
@@ -44,8 +45,12 @@ int main() {
 	if (Check(num_str)) {
                 return 0;;
         }
-	char* str_begin[num_str+25];
-	char* str_end[num_str];
+
+	char** str_begin = (char**)calloc((size_t)(num_str), sizeof(char**));
+	char** str_end = (char**)calloc((size_t)(num_str), sizeof(char**));
+
+	//char* str_begin[(size_t)num_str];
+	//char* str_end[(size_t)num_str];
 		
 
 	error_num = FindStr(str_begin, str_end, buffer, size, num_str); // add to str_begin[] begins of strings from buffer and add to str_end ends of strings from buffer 
@@ -87,7 +92,8 @@ int main() {
         }
 
 	free(buffer - 1);
-
+	free(str_begin);
+	free(str_end);
 	fclose(f);
 	return 0;
 }
