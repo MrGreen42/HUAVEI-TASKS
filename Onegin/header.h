@@ -84,6 +84,33 @@ Sorts strings
 */
 
 int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2));
+
+/*!-----------------------------------------------------------
+Realisation of qsort func1
+
+\param[in] arr array of strings
+\param[in] start position of start in part of array
+\param[in] end position of end in part of array
+\param[in] cmp comparator
+
+*/
+
+
+int RecurSort(char** arr, int start, int end, int (*cmp)(const void* str1, const void* str2));
+
+/*!-----------------------------------------------------------
+Realisation of qsort func2
+Sorts elemenets in part of array by base element(last element in this part)
+
+\param[in] arr array of strings
+\param[in] start position of start in part of array
+\param[in] end position of end in part of array
+\param[in] cmp comparator
+*/
+
+
+int Partition(char** arr, int start, int end, int (*cmp)(const void* str1, const void* str2));
+
 /*!-----------------------------------------------------------
 Prints strings to file
 

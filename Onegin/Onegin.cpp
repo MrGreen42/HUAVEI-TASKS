@@ -42,9 +42,16 @@ int main() {
 
 	int num_str = StrCount(buffer, size); //Count number of strings in buffer	
 	CHECK(num_str);
+<<<<<<< Updated upstream
 
 	char** str_begin = (char**)calloc((size_t)(num_str), sizeof(char**));
 	char** str_end = (char**)calloc((size_t)(num_str), sizeof(char**));
+=======
+    char** str_begin = (char**)calloc((size_t)(num_str + 1), sizeof(char**));
+	char** str_end = (char**)calloc((size_t)(num_str + 1), sizeof(char**));
+    error_num = FindStr(str_begin, str_end, buffer, size, num_str); 
+	CHECK(error_num);
+>>>>>>> Stashed changes
     
 	error_num = FindStr(str_begin, str_end, buffer, size, num_str); 
 	CHECK(error_num);
