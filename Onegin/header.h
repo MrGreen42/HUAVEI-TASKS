@@ -1,4 +1,8 @@
+#ifndef HEDER
+#define HEDER
 // File header
+
+#include <cstdio>
 
 enum ERRORS {
         BAD_FILE = -1,
@@ -150,3 +154,4 @@ Compares strigs
 
 int RevComparator(const void* str1, const void* str2);
 
+#endif
