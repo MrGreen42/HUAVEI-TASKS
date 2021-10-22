@@ -1,11 +1,17 @@
 #include <cstdio>
 #include "header.h"
 #include <stdlib.h>
+#include <ctype.h>
+
+#define CHECK_FILE \
+    if (!f) { \
+        return BAD_FILE; \
+    } \
+
+
 
 int FileSize(FILE* f) {
-	if (!f) {
-		return BAD_FILE;
-	}
+	CHECK_FILE;
 	fseek(f, 0, SEEK_END); //place position in the end of file
 	int size = (int)ftell(f); // ftell returns number of position
 	if (size < 0) {
@@ -16,9 +22,7 @@ int FileSize(FILE* f) {
 }
 
 int ReadFile(FILE* f, char* buffer, int size) {
-	if (!f) {
-        return BAD_FILE;
-    }
+	CHECK_FILE;
 	if (!buffer) {
         return BAD_BUFFER;
     }
@@ -87,12 +91,6 @@ int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2)
 	if (!cmp) {
         return BAD_COMPARATOR;
     }
-<<<<<<< Updated upstream
-	qsort(arr, (size_t)num_str, sizeof(char*), cmp);
-	return 0;
-}
-	
-=======
     RecurSort(arr, 0, num_str, cmp);
 	return 0;
 }
@@ -124,13 +122,9 @@ int Partition(char** arr, int start, int end, int (*cmp) (const void* str1, cons
     arr[i] = tmp;
     return i;
 }
- 
->>>>>>> Stashed changes
 
 int Print_Sort(FILE* f, char** str_begin, int num_str) {
-	if (!f) {
-        return BAD_FILE;
-    }
+	CHECK_FILE;
 	if (!str_begin) {
         return BAD_ARRAY;
     }
@@ -146,9 +140,7 @@ int Print_Sort(FILE* f, char** str_begin, int num_str) {
 
 
 int Print_Rev(FILE* f, char** str_end, int num_str) {
-	if (!f) {
-        return BAD_FILE;
-    }
+	CHECK_FILE;
     if (!str_end) {
         return BAD_ARRAY;
     }
@@ -167,9 +159,7 @@ int Print_Rev(FILE* f, char** str_end, int num_str) {
 
 
 int Print_Orig(FILE* f, char* buffer, int size) {
-	if (!f) {
-        return BAD_FILE;
-    }
+	CHECK_FILE;
     if (!buffer) {
         return BAD_BUFFER;
     }
@@ -186,40 +176,38 @@ int Print_Orig(FILE* f, char* buffer, int size) {
 }
 
 int Comparator(const void* str1, const void* str2) {
-	int k = 0;
-    if(*(char* const*)str1 == *(char* const*)str2) {
+    char* val1 = *(char* const*)str1;
+    char* val2 = *(char* const*)str2;
+    if(val1 == val2) { 
         return 0;
     }
 
-	while (*(*(char* const*)str1 + k) == *(*(char* const*)str2 + k)) {
-		k++;
+	while (*val1 == *val2) {
+		val1++;
+        val2++;
 	}
-	return *(*(char* const*)str1 + k) - *(*(char* const*)str2 + k);
+	return *val1 - *val2;
 }
 
 int RevComparator(const void* str1, const void* str2) {
-	int k1 = 0, k2 = 0;
-    if(*(char* const*)str1 == *(char* const*)str2) {
+	char* val1 = *(char* const*)str1;
+    char* val2 = *(char* const*)str2;
+    if (val1 == val2) {
         return 0;
     }
 
-	while (!(( ('A' <= *(*(char* const*)str1 - k1)) && ( *(*(char* const*)str1 - k1) <= 'Z'))
-            || 
-            ( ('a' <= *(*(char* const*)str1 - k1)) && ( *(*(char* const*)str1 - k1) <= 'z')) )) {
-		
-        k1++;
+	while (!isalpha(*val1)) {
+        val1--;
 	}
-	while (!(( ('A' <= *(*(char* const*)str2 - k2)) && ( *(*(char* const*)str2 - k2) <= 'Z')) 
-            || 
-            ( ('a' <= *(*(char* const*)str2 - k2)) && ( *(*(char* const*)str2 - k2) <= 'z')) )) {
+    while (!isalpha(*val2)) {
+        val2--;
+    }
 
-        k2++;
+	while (*val1 == *val2) {
+        val1--;
+		val2--;
     }
-	while (*(*(char* const*)str1 - k1) == *(*(char* const*)str2 - k2)) {
-        k1++;
-		k2++;
-    }
-	return *(*(char* const*)str1 - k1) - *(*(char* const*)str2 - k2);
+	return *val1 - *val2;
 }
 
 
