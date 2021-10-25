@@ -89,8 +89,6 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 
 int Sort(void* arr, size_t num, size_t size,  int (*cmp)(const void* str1, const void* str2)) {
 	CHECK_ARR(arr);
-	if (num < 0)
-		return BAD_NUM_STR;
 	if (!cmp) {
 		return BAD_COMPARATOR;
 	}
@@ -98,20 +96,22 @@ int Sort(void* arr, size_t num, size_t size,  int (*cmp)(const void* str1, const
 	return 0;
 }
 
-int RecurSort(void* arr, int start, int end, size_t size,  int (*cmp) (const void* str1, const void* str2)) {
-	int base = 0;
+int RecurSort(void* arr, size_t start, size_t end, size_t size,  int (*cmp) (const void* str1, const void* str2)) {
+	size_t base = 0;
 	if (start < end) {
-		base = Partition(arr, start, end, size, cmp);  
-		RecurSort(arr, start, base - 1, size, cmp);
+		base = Partition(arr, start, end, size, cmp); 
+		if (base != 0) { 
+			RecurSort(arr, start, base - 1, size, cmp);
+		}
 		RecurSort(arr, base + 1, end, size, cmp);
 	}
 	return 0;
 }
 
-int Partition(void* arr, int start, int end, size_t size, int (*cmp) (const void* str1, const void* str2)) {
+size_t Partition(void* arr, size_t start, size_t end, size_t size, int (*cmp) (const void* str1, const void* str2)) {
 	void* base = (char*)arr +  end * size ;
-	int i = start;
-	for (int j = start; j < end; j++ ) {
+	size_t i = start;
+	for (size_t j = start; j < end; j++ ) {
 		if (cmp((char*)arr + j * size, base) <= 0) {
 			Swap((char*)arr + j * size, (char*)arr + i * size, size);
 			i ++;

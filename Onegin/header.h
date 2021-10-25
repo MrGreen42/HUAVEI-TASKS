@@ -76,6 +76,7 @@ Sorts strings
 
 \param[in] arr array of strings
 \param[in] num_str number of strings
+\param[in] size size of elements
 \param[in] cmp comparator
 
 \return code of error
@@ -90,12 +91,13 @@ Realisation of qsort func1
 \param[in] arr array of strings
 \param[in] start position of start in part of array
 \param[in] end position of end in part of array
+\param[in] size size of elements
 \param[in] cmp comparator
 
 */
 
 
-int RecurSort(void* arr, int start, int end, size_t size,  int (*cmp) (const void* str1, const void* str2));
+int RecurSort(void* arr, size_t start, size_t end, size_t size,  int (*cmp) (const void* str1, const void* str2));
 /*!-----------------------------------------------------------
 Realisation of qsort func2
 Sorts elemenets in part of array by base element(last element in this part)
@@ -103,11 +105,25 @@ Sorts elemenets in part of array by base element(last element in this part)
 \param[in] arr array of strings
 \param[in] start position of start in part of array
 \param[in] end position of end in part of array
+\param[in] size size of elements
 \param[in] cmp comparator
 */
 
 
-int Partition(void* arr, int start, int end, size_t size, int (*cmp) (const void* str1, const void* str2));
+size_t Partition(void* arr, size_t start, size_t end, size_t size, int (*cmp) (const void* str1, const void* str2));
+
+/*!-----------------------------------------------------------
+Realization of qsort func3
+swaps two elements of array
+
+\param[in] val1
+\param[in] val2
+\param[in] size size of elements
+*/
+
+
+int Swap(void* val1, void* val2, size_t size);
+
 /*!-----------------------------------------------------------
 Prints strings to file
 
@@ -121,7 +137,6 @@ Prints strings to file
 \note if return value < 0 it is error and the value is its code
 */
 
-int Swap(void* val1, void* val2, size_t size);
 
 int Print_Sort(FILE* f, char** str_begin, int num_str);
 
