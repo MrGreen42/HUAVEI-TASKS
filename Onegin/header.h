@@ -83,8 +83,7 @@ Sorts strings
 \note if return value < 0 it is error and the value is its code
 */
 
-int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2));
-
+int Sort(void* arr, size_t num, size_t size,  int (*cmp)(const void* str1, const void* str2));
 /*!-----------------------------------------------------------
 Realisation of qsort func1
 
@@ -96,8 +95,7 @@ Realisation of qsort func1
 */
 
 
-int RecurSort(char** arr, int start, int end, int (*cmp)(const void* str1, const void* str2));
-
+int RecurSort(void* arr, int start, int end, size_t size,  int (*cmp) (const void* str1, const void* str2));
 /*!-----------------------------------------------------------
 Realisation of qsort func2
 Sorts elemenets in part of array by base element(last element in this part)
@@ -109,8 +107,7 @@ Sorts elemenets in part of array by base element(last element in this part)
 */
 
 
-int Partition(char** arr, int start, int end, int (*cmp)(const void* str1, const void* str2));
-
+int Partition(void* arr, int start, int end, size_t size, int (*cmp) (const void* str1, const void* str2));
 /*!-----------------------------------------------------------
 Prints strings to file
 
@@ -124,6 +121,7 @@ Prints strings to file
 \note if return value < 0 it is error and the value is its code
 */
 
+int Swap(void* val1, void* val2, size_t size);
 
 int Print_Sort(FILE* f, char** str_begin, int num_str);
 

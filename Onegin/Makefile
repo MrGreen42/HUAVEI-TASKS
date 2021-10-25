@@ -6,10 +6,10 @@ Onegin: Onegin.o funcs.o
 	g++ Onegin.o funcs.o -o Onegin
 
 Onegin.o: Onegin.cpp
-	g++ compile_flags Onegin.cpp
+	g++ -c Onegin.cpp
 
 funcs.o: funcs.cpp
-	g++ compile_flags funcs.cpp
+	g++ -c funcs.cpp
 
 clean:
 	rm -rf *.o Onegin

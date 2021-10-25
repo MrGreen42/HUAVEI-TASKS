@@ -2,6 +2,7 @@
 #include "header.h"
 #include <stdlib.h>
 #include <ctype.h>
+#include <cstring>
 
 #define CHECK_FILE \
 	if (!f) { \
@@ -86,42 +87,47 @@ int FindStr(char** begin, char** end, char* buffer, int size, int num_str) {
 	return 0;
 }
 
-int Sort(char** arr, int num_str, int (*cmp)(const void* str1, const void* str2)) {
+int Sort(void* arr, size_t num, size_t size,  int (*cmp)(const void* str1, const void* str2)) {
 	CHECK_ARR(arr);
-	CHECK_NUM_STR;
+	if (num < 0)
+		return BAD_NUM_STR;
 	if (!cmp) {
 		return BAD_COMPARATOR;
 	}
-	RecurSort(arr, 0, num_str, cmp);
+	RecurSort(arr, 0, num, size, cmp);
 	return 0;
 }
 
-int RecurSort(char ** arr, int start, int end, int (*cmp) (const void* str1, const void* str2)) {
+int RecurSort(void* arr, int start, int end, size_t size,  int (*cmp) (const void* str1, const void* str2)) {
 	int base = 0;
 	if (start < end) {
-		base = Partition(arr, start, end, cmp);     
-		RecurSort(arr, start, base - 1, cmp);
-		RecurSort(arr, base + 1, end, cmp);
+		base = Partition(arr, start, end, size, cmp);  
+		RecurSort(arr, start, base - 1, size, cmp);
+		RecurSort(arr, base + 1, end, size, cmp);
 	}
 	return 0;
 }
 
-int Partition(char** arr, int start, int end, int (*cmp) (const void* str1, const void* str2)) {
-	char* base_str = arr[end];
-	char* tmp = {};
+int Partition(void* arr, int start, int end, size_t size, int (*cmp) (const void* str1, const void* str2)) {
+	void* base = (char*)arr +  end * size ;
 	int i = start;
 	for (int j = start; j < end; j++ ) {
-		if (cmp(&arr[j], &base_str) <= 0) {
-			tmp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = tmp;
+		if (cmp((char*)arr + j * size, base) <= 0) {
+			Swap((char*)arr + j * size, (char*)arr + i * size, size);
 			i ++;
 		}
 	}
-	tmp = arr[end];
-	arr[end] = arr[i];
-	arr[i] = tmp;
+	Swap((char*)arr + end * size, (char*)arr + i * size, size);
 	return i;
+}
+
+int Swap(void* val1, void* val2, size_t size) {
+	char tmp[size] = {};
+	memcpy(tmp, val1, size);
+	memcpy(val1, val2, size);
+	memcpy(val2, tmp, size);
+	
+	return 0;
 }
 
 int Print_Sort(FILE* f, char** str_begin, int num_str) {
@@ -167,7 +173,7 @@ int Print_Orig(FILE* f, char* buffer, int size) {
 int Comparator(const void* str1, const void* str2) {
 	char* val1 = *(char* const*)str1;
 	char* val2 = *(char* const*)str2;
-	if(val1 == val2) {
+	if (val1 == val2) {
 		return 0;
 	}
 	while (*val1 == *val2) {
