@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "header.h"
+#include "Onegin_lib.h"
 #include <stdlib.h>
 #include <ctype.h>
 #include <cstring>

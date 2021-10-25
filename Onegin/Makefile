@@ -2,14 +2,14 @@ compile_flags = -c -D NDEBUG -g -std=c++14 -Werror -fmax-errors=1 -Wall -Wextra 
 
 all: Onegin
 
-Onegin: Onegin.o funcs.o
-	g++ Onegin.o funcs.o -o Onegin
+Onegin: main.o Onegin_lib.o
+	g++ main.o Onegin_lib.o -o Onegin
 
-Onegin.o: Onegin.cpp
-	g++ $(compile_flags) Onegin.cpp
+main.o: main.cpp
+	g++ $(compile_flags) main.cpp
 
-funcs.o: funcs.cpp
-	g++ $(compile_flags) funcs.cpp
+Onegin_lib.o: Onegin_lib.cpp
+	g++ $(compile_flags) Onegin_lib.cpp
 
 clean:
 	rm -rf *.o Onegin

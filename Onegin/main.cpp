@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "Onegin_lib.h"
 #include <cstring>
 
 #define CHECK(a) \
@@ -51,10 +51,10 @@ int main() {
 	error_num = FindStr(str_begin, str_end, buffer, size, num_str); 
 	CHECK(error_num);
 
-	error_num = Sort(str_begin, num_str, sizeof(char*), Comparator); // sort
+	error_num = Sort(str_begin, (size_t)num_str, sizeof(char*), Comparator); // sort
 	CHECK(error_num);
 
-	error_num = Sort(str_end, num_str, sizeof(char*), RevComparator);
+	error_num = Sort(str_end, (size_t)num_str, sizeof(char*), RevComparator);
 	CHECK(error_num);
 
 	fclose(f);
