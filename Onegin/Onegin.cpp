@@ -86,19 +86,19 @@ int main() {
 int Check(int error_num) {
 	switch (error_num) {
 		case BAD_FILE: printf("invalid file descriptor\n");
-			       return 1;
-	        case BAD_BUFFER: printf("invalid buffer\n");
-                               return 1;
-	        case BAD_READ: printf("unsuccesful reading from file\n");
-                               return 1;
-	        case BAD_SIZE: printf("invalid size\n");
-                               return 1;
-	        case BAD_NUM_STR: printf("invalid number of strings\n");
-                               return 1;
-	        case BAD_ARRAY: printf("invalid array of strings\n");
-                               return 1;
-	        case BAD_COMPARATOR: printf("invalid pointer to func \"comparator\"\n");
-                               return 1;
+			return 1;
+		case BAD_BUFFER: printf("invalid buffer\n");
+			return 1;
+		case BAD_READ: printf("unsuccesful reading from file\n");
+			return 1;
+		case BAD_SIZE: printf("invalid size\n");
+			return 1;
+		case BAD_NUM_STR: printf("invalid number of strings\n");
+			return 1;
+		case BAD_ARRAY: printf("invalid array of strings\n");
+			return 1;
+		case BAD_COMPARATOR: printf("invalid pointer to func \"comparator\"\n");
+			return 1;
 		default: return 0;
 	}
 }
